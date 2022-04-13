@@ -2,7 +2,7 @@
 # Install compiz docker container over the host desktop
 # Clear Linux OS related
 
-#Install xfce4-desktop
+# Install xfce4-desktop
 swupd bundle-add xfce4-desktop
 
 # Disable graphical target and create .xinitrc
