@@ -32,6 +32,8 @@ ccsm
 # Load compiz
 compiz --replace &
 
+# If things went well save the container again
+
 
 
 
