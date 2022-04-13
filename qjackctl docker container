@@ -44,6 +44,7 @@
 # jackctl will freeze up w/ various panels and other apps via apt
 # For example apt install obs-studio or apt install lxpanel will freeze up qjackctl
 # To work around this do not install them via apt and build from source, or use another GUI app instead of qjackctl
+# If qjackctl freeze up the container press <alt><control-key><F3>, log in and killall qjackctl than <alt><control-key><F1> to return
 
 
 
