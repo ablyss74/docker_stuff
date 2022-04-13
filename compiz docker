@@ -37,6 +37,7 @@ compiz --replace &
 # Turn off compiz
 # Open up terminal on the host side
 xfwm4 --replace &
+#Or log out and back in with startx
 
 
 # Install nvidia drivers if you want
