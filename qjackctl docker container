@@ -46,6 +46,13 @@
 # To work around this do not install them via apt and build from source, or use another GUI app instead of qjackctl
 # If qjackctl freeze up the container press <alt><control-key><F3>, log in and killall qjackctl than <alt><control-key><F1> to return
 
+# Testing qjackctl
+# 1. apt install lmms -y
+# 2. qjackctl &
+# 3. lmms --allowroot &
+# Tell lmms to use jack, restart lmms and play a sample song
+# Save your container image as described above.
+
 
 
 
