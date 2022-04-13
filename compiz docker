@@ -11,7 +11,7 @@ echo "exec xfce4-session" > $HOME/.xinitrc
 reboot
 
 # Xfce4 desktop
-echo -e "FROM ubuntu \\nRUN apt update \\nRUN apt upgrade -y\\RUN apt update -y\\RUN apt install compizconfig-settings-manager compiz fusion-icon emerald -y" > /tmp/Dockerfile
+echo -e "FROM ubuntu \\nRUN apt update \\nRUN apt upgrade -y\\RUN apt update -y\\nRUN apt install compizconfig-settings-manager compiz fusion-icon emerald -y" > /tmp/Dockerfile
 sudo docker build -t compiz < /tmp/Dockerfile -
 xhost local:${USER}
 sudo docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} compiz
