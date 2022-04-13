@@ -30,7 +30,7 @@ qjackctl &
 
 # Save the docker container - So we do not have to repeat all the steps again we need to save the docker container
 # 1. sudo docker ps
-# 2. sudo docker commit <CONTAINER ID>  <IMAGE>  # Replace Container ID and Image with what is shown after your type sudo docker ps
+# 2. sudo docker commit <CONTAINER ID> qjackctl # Replace Container ID with what is shown after your type sudo docker ps
 
 # Delete docker contianer - For whatever reason
 # 1. sudo docker rmi ubuntu --force
