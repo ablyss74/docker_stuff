@@ -3,7 +3,7 @@
 # There are known issues that I haven't resolved and will discuss more about that below.
 
 
-# What these two commands do is logs in as root in bash, then sets realtime sched on the host machine, then exits root.
+# Set realtime sched on the host machine
 # The default value on my OS "Clear Linux" is 950000 and defaults to that value on every reboot.
 # Be sure to not copy/paste both lines at once, but instead both separately. 
 sudo bash # Copy this line first
