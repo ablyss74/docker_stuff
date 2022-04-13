@@ -19,6 +19,10 @@ sudo docker run -it --privileged -e -v /dev/shm:/dev/shm:rw --net=host -e DISPLA
 # Inside the docker container command line
 apt install compizconfig-settings-manager compiz fusion-icon emerald
 
+# Save the container at this point
+sudo docker ps
+sudo docker commit <CONTAINER ID>  <IMAGE>  # Replace Container ID and Image with what is shown after your type sudo docker ps
+
 
 
 
