@@ -1,5 +1,5 @@
 # What this does... 
-# 1. Build a docker container from the command prompt and run qjackctl in realtime.
+# Build a docker container from the command prompt and run qjackctl in realtime.
 # There are known issues that I haven't resolved and will discuss more about that below.
 
 
