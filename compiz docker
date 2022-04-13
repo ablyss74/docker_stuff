@@ -14,7 +14,7 @@ reboot, login and type startx
 echo -e "FROM ubuntu \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
 sudo docker build -t compiz < /tmp/Dockerfile -
 xhost local:${USER}
-sudo docker run -it --privileged -e -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} compiz
+sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} compiz
 
 # Inside the docker container command line
 apt install compizconfig-settings-manager compiz fusion-icon emerald
