@@ -53,5 +53,5 @@ nvidia-smi
 
 
 
-# Enable graphical targer to fallback and ignore .xinirtc
+# Enable graphical targer to fallback and ignore .xinitrc
 # sudo systemctl set-default graphical.target
