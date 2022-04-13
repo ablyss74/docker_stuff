@@ -6,6 +6,7 @@
 # First step we need to set realtime sched on the host machine
 # 1. Open your favorite terminal and type: sudo bash
 # 2. Once root is logged in, type: echo "-1" > /proc/sys/kernel/sched_rt_runtime_us
+# 3. Next type: exit
 # 3. The default value on my OS is 950000 and defaults to that value on every reboot.
 
 
