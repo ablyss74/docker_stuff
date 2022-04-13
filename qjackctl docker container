@@ -24,12 +24,12 @@
 # Run docker container and work with it from the command line
 # 1. sudo docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} ubuntu
 
-# Update and install some stuff from within the docker container
+# Update and install qjackctl from within the docker container
 # 1. apt update && apt upgrade -y
 # 2. apt install qjackctl -y
 #  During the install you will be prompted to enter the geographic location and keyboard layout. 
 #  You will also be prompted to enable realtime priority: select yes
-# 5. qjackctl
+# 2. qjackctl
 # Do not exit without saving container.. see next step
 
 # Save the docker container - So we do not have to repeat all the steps again we need to save the docker container
