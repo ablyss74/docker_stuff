@@ -18,13 +18,21 @@ sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=$
 
 # Inside the docker container command line
 apt install compizconfig-settings-manager compiz fusion-icon emerald
-ccsm
-# In ccsm turn on these plugins
-# Composite, OpenGL, Window Decorations, Maximumize, Resize Window, Move Window, 
+
 
 # Save the container at this point
 sudo docker ps
 sudo docker commit <CONTAINER ID>  <IMAGE>  # Replace Container ID and Image with what is shown after your type sudo docker ps
+
+# Configure Compiz
+ccsm
+# Turn on these plugins
+# Composite, OpenGL, Window Decorations, Wobbly Windows, Grid, Move Window, Place Window, Resize Window, Shift Switcher
+
+# Load compiz
+compiz --replace &
+
+
 
 
 
