@@ -32,6 +32,11 @@ ccsm
 # Load compiz
 compiz --replace &
 
+# Optional but worth it
+#emerald --replace &
+#emerald-theme-manager &
+
+
 # If things went well save the container again
 
 # Turn off compiz
