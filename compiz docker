@@ -17,7 +17,7 @@ xhost local:${USER}
 sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} compiz
 
 # Inside the docker container command line
-apt install compizconfig-settings-manager compiz fusion-icon emerald
+apt install compizconfig-settings-manager compiz fusion-icon emerald curl
 
 
 # Save the container at this point
