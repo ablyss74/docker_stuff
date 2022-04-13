@@ -20,7 +20,7 @@ sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=$
 apt install compizconfig-settings-manager compiz fusion-icon emerald
 ccsm
 # In ccsm turn on these plugins
-# Window Decorations, Maximumize, Resize Window, Move Window, 
+# Composite, OpenGL, Window Decorations, Maximumize, Resize Window, Move Window, 
 
 # Save the container at this point
 sudo docker ps
