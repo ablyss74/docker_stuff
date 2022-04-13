@@ -4,7 +4,7 @@
 
 
 # Set realtime sched on the host machine
-# The default value on my OS is 950000 and defaults to that value on every reboot.
+# The default value on my OS "Clear Linux" is 950000 and defaults to that value on every reboot.
 # Be sure to not copy/paste both lines at once, but instead both separately. 
 sudo bash # Copy this line first
 echo "-1" > /proc/sys/kernel/sched_rt_runtime_us && exit  ## Copy this next
