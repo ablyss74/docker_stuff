@@ -39,6 +39,14 @@ compiz --replace &
 xfwm4 --replace &
 
 
+# Install nvidia drivers if you want
+# From inside the container...
+# The screen may not do any thing for about 30 secs
+# Test with nvidia-smi
+# Dowanload Nvidia driver https://www.nvidia.com/en-us/drivers/unix/
+bash ./NVIDIA-Linux-<your driver here>.run --accept-license --ui=none --no-kernel-module --no-questions
+
+
 # Issues
 # If you exit the container without first running xfwm4 --replace & on the host, your windows will have no borders.
 # Try to right click on the desktop and logout and restart X with startx
