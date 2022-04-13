@@ -38,3 +38,13 @@
 
 # Delete docker contianer - For whatever reason
 # 1. sudo docker rmi ubuntu --force
+
+
+# Known Issues
+# jackctl will freeze up w/ various panels and other apps via apt
+# For example apt install obs-studio or apt install lxpanel will freeze up qjackctl
+# To work around this do not install them via apt and build from source, or use another GUI app instead of qjackctl
+
+
+
+
