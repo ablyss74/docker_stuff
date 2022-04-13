@@ -18,23 +18,19 @@
 
 
 # Pull docker image.  If you haven't alrady installed docker do that now by following the instructions provided by your OS
-# 1. sudo docker pull ubuntu
 
+echo -e "FROM ubuntu \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile
+sudo docker build -t qjackctl < /tmp/Dockerfile -
+sudo docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} qjackctl
 
-# Run docker container and work with it from the command line
-# 1. sudo docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} ubuntu
+# Container Prompt
+qjackctl &
 
-# Update and install qjackctl from within the docker container
-# 1. apt update && apt upgrade -y
-# 2. apt install qjackctl -y
-#  During the install you will be prompted to enter the geographic location and keyboard layout. 
-#  You will also be prompted to enable realtime priority: select yes
-# 2. qjackctl
 # Do not exit without saving container.. see next step
 
 # Save the docker container - So we do not have to repeat all the steps again we need to save the docker container
 # 1. sudo docker ps
-# 2. sudo docker commit <CONTAINER ID>  <IMAGE>  # Replace Container ID and Image with what is shown after your type docker ps
+# 2. sudo docker commit <CONTAINER ID>  <IMAGE>  # Replace Container ID and Image with what is shown after your type sudo docker ps
 
 # Delete docker contianer - For whatever reason
 # 1. sudo docker rmi ubuntu --force
