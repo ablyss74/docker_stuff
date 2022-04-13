@@ -28,4 +28,6 @@
 # Fifth step - Once logged in to the container we need to update and install some stuff
 # 1. type: apt update && apt upgrade -y
 # 2. type: apt install qjackctl -y
+# 3. During the install you will be prompted to enter the geographic location and keyboard layout. 
+# 4. You will also be prompted to enable realtime priority: select yes
 # 3. type: qjackctl &
