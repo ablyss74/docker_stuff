@@ -17,7 +17,7 @@ xhost local:${USER}
 sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} compiz
 
 # Inside the docker container command line
-apt install compizconfig-settings-manager compiz fusion-icon emerald curl
+apt install compizconfig-settings-manager compiz emerald 
 
 
 # Save the container at this point
@@ -43,6 +43,7 @@ xfwm4 --replace &
 # Install nvidia drivers if you want
 # From inside the container...
 # Dowanload Nvidia driver https://www.nvidia.com/en-us/drivers/unix/
+apt install curl -y
 curl -O <link to driver>
 bash ./NVIDIA-Linux-<your driver here>.run --accept-license --ui=none --no-kernel-module --no-questions
 nvidia-smi
