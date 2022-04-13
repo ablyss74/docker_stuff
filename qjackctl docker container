@@ -4,7 +4,6 @@
 
 
 # First step we need to set realtime sched on the host machine
-
 # 1. Open your favorite terminal and type: sudo bash
 # 2. Once root is logged in, type: echo "-1" > /proc/sys/kernel/sched_rt_runtime_us
 # 3. The default value on my OS is 950000 and defaults to that value on every reboot.
@@ -12,10 +11,18 @@
 
 
 # Second step - will need to set xhost to accept connections from the docker container
-
 # 1. type this into terminal: xhost local:${USER}
 
 
 
 # Third step we need to pull a docker image.  If you haven't alrady installed docker do that now by following the instructions provided by your OS
 # 1. docker pull ubuntu
+
+
+# Fourth step is to run the docker container and work with it from the command line
+# 1. type: docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} ubuntu
+
+# Fifth step - Once logged in to the container we need to update and install some stuff
+# 1. type: apt update && apt upgrade -y
+# 2. type: apt install qjackctl -y
+# 3. type: qjackctl &
