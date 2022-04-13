@@ -1,0 +1,19 @@
+# What this does...
+# Install compiz docker container over the host desktop
+# Clear Linux OS related
+
+#Install xfce4-desktop
+swupd bundle-add xfce4-desktop
+
+# Disable graphical target and create .xinitrc
+sudo systemctl set-default multi-user.target 
+echo "exec xfce4-session" > $HOME/.xinitrc
+reboot
+
+# Xfce4 desktop
+
+
+
+
+# Enable graphical targer to fallback and ignore .xinirtc
+# sudo systemctl set-default graphical.target
