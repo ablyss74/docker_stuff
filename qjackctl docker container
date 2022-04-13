@@ -1,0 +1,5 @@
+# What this does... 
+# 1. Build a docker container that will we be working with from the command prompt.
+# 2. Execute a few commands on the host so we can display GUI apps and run qjackctl in realtime
+
+# Okay let's begin
