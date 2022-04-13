@@ -16,7 +16,7 @@ sudo docker build -t compiz < /tmp/Dockerfile -
 xhost local:${USER}
 sudo docker run -it --privileged -e -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} compiz
 
-# Inside the docker container commandlind
+# Inside the docker container command line
 apt install compizconfig-settings-manager compiz fusion-icon emerald
 
 
