@@ -41,10 +41,10 @@ xfwm4 --replace &
 
 # Install nvidia drivers if you want
 # From inside the container...
-# The screen may not do any thing for about 30 secs
-# Test with nvidia-smi
 # Dowanload Nvidia driver https://www.nvidia.com/en-us/drivers/unix/
+curl -O <link to driver>
 bash ./NVIDIA-Linux-<your driver here>.run --accept-license --ui=none --no-kernel-module --no-questions
+nvidia-smi
 
 
 # Issues
