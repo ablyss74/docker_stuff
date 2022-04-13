@@ -2,4 +2,20 @@
 # 1. Build a docker container that will we be working with from the command prompt.
 # 2. Execute a few commands on the host so we can display GUI apps and run qjackctl in realtime
 
-# Okay let's begin
+
+# First step we need to set realtime sched on the host machine
+
+# 1. Open your favorite terminal and type: sudo bash
+# 2. Once root is logged in, type: echo "-1" > /proc/sys/kernel/sched_rt_runtime_us
+# 3. The default value on my OS is 950000 and defaults to that value on every reboot.
+
+
+
+# Second step - will need to set xhost to accept connections from the docker container
+
+# 1. type this into terminal: xhost local:${USER}
+
+
+
+# Third step we need to pull a docker image.  If you haven't alrady installed docker do that now by following the instructions provided by your OS
+# 1. docker pull ubuntu
