@@ -10,13 +10,11 @@
 # The default value on my OS is 950000 and defaults to that value on every reboot.
 
 
-
 # Set xhost to accept connections from the docker container
 # 1. xhost local:${USER}
 
 # Load module snd_seq
 # 1. sudo modprobe snd_seq
-
 
 
 # Pull docker image.  If you haven't alrady installed docker do that now by following the instructions provided by your OS
