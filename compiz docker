@@ -34,8 +34,14 @@ compiz --replace &
 
 # If things went well save the container again
 
+# Turn off compiz
+# Open up terminal on the host side
+xfwm4 --replace &
 
 
+# Issues
+# If you exit the container without first running xfwm4 --replace & on the host, your windows will have no borders.
+# Try to right click on the desktop and logout and restart X with startx
 
 
 
