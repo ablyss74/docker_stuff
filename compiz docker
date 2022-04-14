@@ -29,20 +29,21 @@ ccsm
 # Turn on these plugins
 # Composite, OpenGL, Window Decorations, Wobbly Windows, Grid, Move Window, Place Window, Resize Window, Shift Switcher
 
-# Load compiz
+# Load emerald and compiz
+emerald --replace &
 compiz --replace &
 
-# Optional but worth it
-#emerald --replace &
+# Emerald configuation if needed
 #emerald-theme-manager &
 
 
 # If things went well save the container again
 
-# Turn off compiz
+
+# Turning off compiz...
 # Open up terminal on the host side
 xfwm4 --replace &
-#Or log out and back in with startx
+# Or log out and back in with startx
 
 
 # Install nvidia drivers if you want
@@ -61,7 +62,7 @@ nvidia-smi
 # If you try instead to do compiz in another window manager besides Xfce chances are it wont work unless you know something I don't. :)
 
 # Extra Stuff
-# This little script will watch for compiz to close and load xfwm4 automatically.  
+# This little script will watch for compiz/emerald/xfwm4 to close and load xfwm4 automatically.  
 while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && xfwm4 --replace ; done
 
 # Enable graphical targer to fallback and ignore .xinitrc
