@@ -2,7 +2,7 @@
 # Install compiz docker container over the host desktop for wobbly windows and other special effects
 
 
-# Install xfce4-desktop ( Clear Linux OS related )
+# Install xfce4-desktop and docker
 swupd bundle-add xfce4-desktop
 
 # Disable graphical target and create .xinitrc
