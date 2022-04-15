@@ -33,7 +33,7 @@ qjackctl &
 # 2. sudo docker commit <CONTAINER ID> qjackctl # Replace Container ID with the first ID shown after your type sudo docker ps
 
 # Delete docker contianer - If you need to start fresh or whatever reason
-# 1. sudo docker rmi ubuntu --force
+# 1. sudo docker rmi qjackctl --force
 
 
 # Testing qjackctl
