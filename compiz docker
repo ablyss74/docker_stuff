@@ -25,6 +25,7 @@ apt install compizconfig-settings-manager compiz emerald
 sudo docker ps
 sudo docker commit <CONTAINER ID>  compiz  # Replace Container ID with the first ID shown after your type sudo docker ps
 
+
 # Configure Compiz
 ccsm
 # Turn on these plugins
@@ -65,6 +66,9 @@ nvidia-smi
 # Extra Stuff
 # This little script will watch for compiz/emerald/xfwm4 to close and load xfwm4 automatically.  
 while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && xfwm4 --replace ; done
+
+# Delete docker contianer - If you need to start fresh or whatever reason
+# 1. sudo docker rmi compiz --force
 
 # Enable graphical targer to fallback and ignore .xinitrc
 # sudo systemctl set-default graphical.target
