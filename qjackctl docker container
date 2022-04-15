@@ -49,7 +49,7 @@ lmms --allowroot &
 # jackctl will freeze up w/ various panels and other apps via apt
 # For example apt install obs-studio or apt install lxpanel will freeze up qjackctl
 # To work around this do not install them via apt and build from source, or use another GUI app instead of qjackctl
-# If qjackctl freeze up the container press <alt><control-key><F3>, log in and killall qjackctl than <alt><control-key><F1> to return
+# If qjackctl freezes up the container press <alt><control-key><F3>, log in and killall qjackctl than <alt><control-key><F1> to return
 #
 # Lmms and various other jack supported apps connect to jack automatically so qjackctl freezing up can be avoided if you want to install a panel
 # The app jamin can be used to control the input/outputs to some degree but not as easy as qjackctl.
