@@ -70,5 +70,5 @@ while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && x
 # Delete docker contianer - If you need to start fresh or whatever reason
 # 1. sudo docker rmi compiz --force
 
-# Enable graphical targer to fallback and ignore .xinitrc
+# Enable graphical target to fallback and ignore .xinitrc
 # sudo systemctl set-default graphical.target
