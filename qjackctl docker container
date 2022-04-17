@@ -46,6 +46,9 @@ lmms --allowroot &
 
 
 # Known Issues
+#
+# If qjackctl fails to connect, you may need to open up pavucontrol on the host side and turn off the onboard audio soundcard temporarily.
+#
 # jackctl will freeze up w/ various panels and other apps via apt
 # For example apt install obs-studio or apt install lxpanel will freeze up qjackctl
 # To work around this do not install them via apt and build from source, or use another GUI app instead of qjackctl
