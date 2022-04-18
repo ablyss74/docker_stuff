@@ -2,7 +2,6 @@
 # Build a docker container from the command prompt and run qjackctl in realtime.
 
 
-
 # Set realtime sched on the host machine
 # The default value on my OS "Clear Linux" is 950000 and defaults to that value on every reboot.
 # Be sure to not copy/paste both lines at once, but instead both separately. 
@@ -62,6 +61,12 @@ qjackctl &
 lmms --allowroot &
 # Tell lmms to use jack, restart lmms and play a sample song
 # Save your container image as described above.
+
+# Extra stuff you can add to the container are cairo-dock, ardour, obs-studo, nvidia drive, google-chrome.
+
+# Known bugs:
+# Some apps do not render correctly in enlightenment desktop e.g., obs-studio, but work fine in gnome or xfce4.
+# Docker pulled with ubuntu might break qjackctl if panels are added. Pulling debian instead will fixes this.
 
 
 
