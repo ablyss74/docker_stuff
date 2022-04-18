@@ -66,7 +66,7 @@ lmms --allowroot &
 
 # Known bugs:
 # Some apps do not render correctly in enlightenment desktop e.g., obs-studio, but work fine in gnome or xfce4.
-# Docker pulled with ubuntu might break qjackctl if panels are added. Pulling debian instead will fixes this.
+# Docker pulled with ubuntu might break qjackctl if panels are added. Pulling debian instead fixes this.
 
 
 
