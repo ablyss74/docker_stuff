@@ -62,7 +62,7 @@ nvidia-smi
 
 
 # Issues
-# If you turn leave off compositing on the host, opengl might not work.
+# If you compositing is off on the host, opengl might not work.
 # If you exit the container without first running xfwm4 --replace & on the host, your windows will have no borders.
 # Try to right click on the desktop and logout and restart X with startx
 #
