@@ -9,7 +9,7 @@ swupd bundle-add xfce4-desktop
 sudo systemctl set-default multi-user.target 
 [[ $HOME/.xinirtc ]] && cp $HOME/.xinirtc $HOME/.xinirtc.$$.backup
 echo "exec xfce4-session" > $HOME/.xinitrc
-# Now reboot, login and type type: startx
+# Now reboot, login and type: startx
 
 # Xfce4 desktop
 echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
