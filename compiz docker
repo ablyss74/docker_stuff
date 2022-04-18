@@ -12,12 +12,16 @@ echo "exec xfce4-session" > $HOME/.xinitrc
 # Now reboot, login and type: startx
 
 # Xfce4 desktop
+# Turn on compositing in xfce settings manager
+# Save and close
+
+# Open up Terminal
 echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
 sudo docker build -t debiancompiz < /tmp/Dockerfile -
 xhost local:${USER}
 sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debiancompiz
 
-# Inside the docker container command line
+# Inside the docker container Terminal
 apt install compizconfig-settings-manager compiz emerald 
 
 
@@ -58,6 +62,7 @@ nvidia-smi
 
 
 # Issues
+# If you turn leave off compositing on the host, opengl might not work.
 # If you exit the container without first running xfwm4 --replace & on the host, your windows will have no borders.
 # Try to right click on the desktop and logout and restart X with startx
 #
