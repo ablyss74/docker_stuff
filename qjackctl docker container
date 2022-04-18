@@ -1,6 +1,6 @@
 # What this does... 
 # Build a docker container from the command prompt and run qjackctl in realtime.
-# There are known issues that I haven't resolved and will discuss more about that below.
+
 
 
 # Set realtime sched on the host machine
