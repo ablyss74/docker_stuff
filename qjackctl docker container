@@ -19,21 +19,41 @@ sudo modprobe snd_seq
 
 # Pull docker image.  If you haven't already installed docker do that now by following the instructions provided by your OS
 
-echo -e "FROM ubuntu \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile
-sudo docker build -t qjackctl < /tmp/Dockerfile -
-sudo docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} qjackctl
+echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile
+sudo docker build -t debianC1 < /tmp/Dockerfile -
+sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1
 
 # Container Prompt
 qjackctl &
 
-# Do not exit without saving container.. see next step
+# After qjackctl starts, open the settings and tell which audio card to use, else it won't start.
+
+# Close qjackctl, but DO NOT exit the container terminal without saving container first!.. See next step
 
 # Save the docker container - So we do not have to repeat all the steps again we need to save the docker container
 sudo docker ps
-sudo docker commit <CONTAINER ID> qjackctl # Replace Container ID with the first ID shown after your type sudo docker ps
+sudo docker commit <CONTAINER ID> debianC1 # Replace Container ID with the first ID shown after your type sudo docker ps
+
+
+### This is a little function for .bashrc to save the container with less keystrokes
+dodebiansave() {
+var="$(docker ps)"
+var=($var)
+docker commit ${var[8]} debianC1
+}
+
+### This is a little function for .bashrc to start the container 
+# This includes flags for pulseaudio for running non-jack stuff in the container but not required.
+dodebian() {
+echo "-1" > /proc/sys/kernel/sched_rt_runtime_us
+modprobe snd-seq
+xhost local:${USER}
+docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1
+}
+
 
 # Delete docker contianer - If you need to start fresh or whatever reason
-# 1. sudo docker rmi qjackctl --force
+# 1. sudo docker rmi debianC1 --force
 
 
 # Testing qjackctl in the docker container
@@ -45,18 +65,4 @@ lmms --allowroot &
 
 
 
-# Known Issues
-#
-# If qjackctl fails to connect, you may need to open up pavucontrol on the host side and turn off the onboard audio soundcard temporarily.
-#
-# jackctl will freeze up w/ various panels and other apps via apt
-# For example apt install obs-studio or apt install lxpanel will freeze up qjackctl
-# To work around this do not install them via apt and build from source, or use another GUI app instead of qjackctl
-# If qjackctl freezes up the container press <alt><control-key><F3>, log in and killall qjackctl than <alt><control-key><F1> to return
-#
-# Lmms and various other jack supported apps connect to jack automatically so qjackctl freezing up can be avoided if you want to install a panel
-# The app jamin can be used to control the input/outputs to some degree but not as easy as qjackctl.
-# Works really well with apps that have some port control themselves builtin like rakarrack or guitarix
-# Lmms doesn't seem to have any port control built in ;(
-# 1. apt install jamin -y
 
