@@ -12,10 +12,10 @@ echo "exec xfce4-session" > $HOME/.xinitrc
 # Now reboot, login and type type: startx
 
 # Xfce4 desktop
-echo -e "FROM ubuntu \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
-sudo docker build -t compiz < /tmp/Dockerfile -
+echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
+sudo docker build -t debiancompiz < /tmp/Dockerfile -
 xhost local:${USER}
-sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} compiz
+sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debiancompiz
 
 # Inside the docker container command line
 apt install compizconfig-settings-manager compiz emerald 
@@ -23,7 +23,7 @@ apt install compizconfig-settings-manager compiz emerald
 
 # Save the container at this point
 sudo docker ps
-sudo docker commit <CONTAINER ID>  compiz  # Replace Container ID with the first ID shown after your type sudo docker ps
+sudo docker commit <CONTAINER ID>  debiancompiz  # Replace Container ID with the first ID shown after your type sudo docker ps
 
 
 # Configure Compiz
@@ -68,7 +68,7 @@ nvidia-smi
 while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && xfwm4 --replace ; done
 
 # Delete docker contianer - If you need to start fresh or whatever reason
-# 1. sudo docker rmi compiz --force
+# 1. sudo docker rmi debiancompiz --force
 
 # Enable graphical target to fallback and ignore .xinitrc
 # sudo systemctl set-default graphical.target
