@@ -5,32 +5,37 @@
 # Install xfce4-desktop and docker
 swupd bundle-add xfce4-desktop
 
+# Option 1 - default
 # Disable graphical target and create .xinitrc
 sudo systemctl set-default multi-user.target 
 [[ $HOME/.xinirtc ]] && cp $HOME/.xinirtc $HOME/.xinirtc.$$.backup
 echo "exec xfce4-session" > $HOME/.xinitrc
 # Now reboot, login and type: startx
 
+# Option 2
+# If you don't feel like messing the .xitini and prefer to type in the session manually, just do
+# startx /usr/bin/xfce4-session
+
 # Xfce4 desktop
 # Turn on compositing in xfce settings manager
 # Save and close
 
-# Open up Terminal
+# Open up Terminal and copy and post these lines.
 echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
 sudo docker build -t debiancompiz < /tmp/Dockerfile -
 xhost local:${USER}
 sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debiancompiz
 
-# Inside the docker container Terminal
+# Inside the Docker container Terminal
 apt install compizconfig-settings-manager compiz emerald 
 
 
-# Save the container at this point
+# Save the container at this point in the Host Terminal, not the Docker terminal
 sudo docker ps
 sudo docker commit <CONTAINER ID>  debiancompiz  # Replace Container ID with the first ID shown after your type sudo docker ps
 
 
-# Configure Compiz
+# Configure Compiz Docker Terminal
 ccsm
 # Turn on these plugins ( if the plugin is not listed that means its probably auto-detected and installed )
 # Composite, OpenGL, Window Decorations, Wobbly Windows, Grid, Move Window, Place Window, Resize Window, Shift Switcher
