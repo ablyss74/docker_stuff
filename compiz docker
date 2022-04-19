@@ -1,8 +1,8 @@
 # What this does...
-# Install compiz docker container over the host desktop for wobbly windows and other special effects
+# Install compiz Docker container over the host desktop for wobbly windows and other special effects
 
 
-# Install xfce4-desktop and docker
+# Install xfce4-desktop and Docker
 swupd bundle-add xfce4-desktop
 
 # Option 1 - default
