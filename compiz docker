@@ -1,5 +1,5 @@
 # What this does...
-# Install compiz Docker container over the host desktop for wobbly windows and other special effects
+# Install compiz Docker container and xfce desktop on Clear Linux for wobbly windows and other special effects.
 
 
 # Install xfce4-desktop and Docker
