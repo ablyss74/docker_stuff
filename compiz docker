@@ -13,7 +13,7 @@ echo "exec xfce4-session" > $HOME/.xinitrc
 # Now reboot, login and type: startx
 
 # Option 2
-# If you don't feel like messing w/ the .xitini and prefer to type in the session manually, just do
+# If you don't feel like messing w/ .xitini and prefer to type in the session manually, just do
 # startx /usr/bin/xfce4-session
 
 # Xfce4 desktop
