@@ -8,7 +8,7 @@ swupd bundle-add xfce4-desktop
 # Option 1 - default
 # Disable graphical target and create .xinitrc
 sudo systemctl set-default multi-user.target 
-[[ $HOME/.xinirtc ]] && cp $HOME/.xinirtc $HOME/.xinirtc.$$.backup
+[[ $HOME/.xinitrc ]] && cp $HOME/.xinirtc $HOME/.xinitrc.$$.backup
 echo "exec xfce4-session" > $HOME/.xinitrc
 # Now reboot, login and type: startx
 
