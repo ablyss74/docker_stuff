@@ -35,29 +35,29 @@ sudo docker ps
 sudo docker commit <CONTAINER ID>  debiancompiz  # Replace Container ID with the first ID shown after your type sudo docker ps
 
 
-# Configure Compiz Docker Terminal
+# Configure Compiz - Docker Terminal
 ccsm
 # Turn on these plugins ( if the plugin is not listed that means its probably auto-detected and installed )
 # Composite, OpenGL, Window Decorations, Wobbly Windows, Grid, Move Window, Place Window, Resize Window, Shift Switcher
 
-# Load emerald and compiz
+# Load emerald and compiz - Docker Terminal
 emerald --replace &
 compiz --replace &
 
-# Emerald configuation if needed
+# Emerald configuation if needed - Docker Terminal
 #emerald-theme-manager &
 
 
-# If things went well save the container again
+# If things went well save the container again - Host Terminal
 
 
-# Turning off compiz...
-# Open up terminal on the host side
+# Turning off compiz... - Host Terminal
+# Open up terminal 
 xfwm4 --replace &
 # Or log out and back in with startx
 
 
-# Install nvidia drivers if you want
+# Install nvidia drivers if you want - Docker Terminal
 # From inside the container...
 # Dowanload Nvidia driver https://www.nvidia.com/en-us/drivers/unix/
 apt install curl kmod -y
