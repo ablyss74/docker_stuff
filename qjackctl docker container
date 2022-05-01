@@ -16,7 +16,7 @@ xhost local:${USER}
 sudo modprobe snd_seq
 
 
-# Pull docker image.  If you haven't already installed docker do that now by following the instructions provided by your OS
+# Pull docker image.  If you haven't already installed docker typing: sudo swupd bundle-add containers-basic
 
 echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile
 sudo docker build -t debianC1 < /tmp/Dockerfile -
