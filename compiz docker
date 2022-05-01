@@ -3,8 +3,9 @@
 
 
 # Install xfce4-desktop and Docker
-swupd bundle-add xfce4-desktop
+sudo swupd bundle-add xfce4-desktop
 sudo swupd bundle-add containers-basic
+sudo systemctl start docker.service
 
 # Option 1 - default
 # Disable graphical target and create .xinitrc
