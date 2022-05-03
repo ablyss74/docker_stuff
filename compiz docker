@@ -1,5 +1,7 @@
 # What this does...
 # Install compiz Docker container and xfce desktop on Clear Linux for wobbly windows and other special effects.
+# Tested with X11 and Nvidia driver installed.
+# Not fully tested on wayland or Nouveau
 
 
 # Install xfce4-desktop and Docker #Kde Plasma works too but in this example xfce4 is used.
