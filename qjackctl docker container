@@ -2,13 +2,6 @@
 # Build a docker container from the command prompt and run qjackctl in realtime.
 
 
-# Set realtime sched on the host machine
-# The default value on my OS "Clear Linux" is 950000 and defaults to that value on every reboot.
-# Be sure to not copy/paste both lines at once, but instead both separately. 
-sudo bash # Copy this line first
-echo "-1" > /proc/sys/kernel/sched_rt_runtime_us && exit  ## Copy this next
-
-
 # Set xhost to accept connections from the docker container
 xhost local:${USER}
 
@@ -26,7 +19,11 @@ sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1
 # Container Prompt
 qjackctl &
 
-# After qjackctl starts, open the settings and tell which audio card to use, else it won't start.
+# After qjackctl starts, open the settings and tell which audio card to use, framesize, samplerate, else it won't start.
+# Add this line to the startup script in qjackctl 
+echo -1 > /proc/sys/kernel/sched_rt_runtime_us
+# Add this line to the shutdown script in qjackctl 
+echo 950000 > /proc/sys/kernel/sched_rt_runtime_us
 
 # Close qjackctl, but DO NOT exit the container terminal without saving container first!.. See next step
 
