@@ -2,7 +2,7 @@
 # Install compiz Docker container and xfce desktop on Clear Linux for wobbly windows and other special effects.
 
 
-# Install xfce4-desktop and Docker
+# Install xfce4-desktop and Docker #Kde Plasma works too but in this example xfce4 is used.
 sudo swupd bundle-add xfce4-desktop
 sudo swupd bundle-add containers-basic
 sudo systemctl start docker.service
