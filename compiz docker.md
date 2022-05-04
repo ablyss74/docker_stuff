@@ -41,7 +41,7 @@ sudo docker commit <CONTAINER ID>  debiancompiz  # Replace Container ID with the
 ### Configure Compiz - Docker Terminal
 ccsm
 ### Turn on these plugins ( if the plugin is not listed that means its probably auto-detected and installed )
-###Composite, OpenGL, Window Decorations, Wobbly Windows, Grid, Move Window, Place Window, Resize Window, Shift Switcher
+### Composite, OpenGL, Window Decorations, Wobbly Windows, Grid, Move Window, Place Window, Resize Window, Shift Switcher
 
 ### Load emerald and compiz - Docker Terminal
 emerald --replace &
