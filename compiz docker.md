@@ -23,7 +23,7 @@ echo "exec xfce4-session" > $HOME/.xinitrc
 ### Turn on compositing in xfce settings manager
 ### Save and close
 
-### Open up Terminal and copy and post these lines.
+### Open up Terminal and copy and paste these lines.
 echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
 sudo docker build -t debiancompiz < /tmp/Dockerfile -
 xhost local:${USER}
