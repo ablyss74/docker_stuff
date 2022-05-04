@@ -50,7 +50,7 @@
 
 
 ### Delete docker contianer - If you need to start fresh or whatever reason.
-### >sudo docker rmi debianC1 --force
+> \# sudo docker rmi debianC1 --force
 
 
 ### Testing qjackctl in the docker container.
