@@ -23,6 +23,10 @@ echo -1 > /proc/sys/kernel/sched_rt_runtime_us
 # Add this line to the shutdown script in qjackctl 
 echo 950000 > /proc/sys/kernel/sched_rt_runtime_us
 
+![Eample](./images/shot-2022-05-04_10-45-01.jpg)
+
+
+
 # Close qjackctl, but DO NOT exit the container terminal without saving container first!.. See next step
 
 # Save the docker container - So we do not have to repeat all the steps again we need to save the docker container
