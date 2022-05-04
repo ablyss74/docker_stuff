@@ -25,8 +25,11 @@
 
 ### Open up Terminal and copy and paste these lines.
 > echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
+> 
 > sudo docker build -t debiancompiz < /tmp/Dockerfile -
+> 
 > xhost local:${USER}
+> 
 > sudo docker run -it --privileged -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debiancompiz
 
 ### Inside the Docker container Terminal
