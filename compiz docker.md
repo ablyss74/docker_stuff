@@ -83,7 +83,7 @@
 > while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && xfwm4 --replace ; done
 
 ### Delete docker contianer - If you need to start fresh or whatever reason
-\# sudo docker rmi debiancompiz --force
+\# sudo docker rmi debiancompiz --force \#(omit the first pound sign).
 
 ### Enable graphical target to fallback and ignore .xinitrc
 > sudo systemctl set-default graphical.target
