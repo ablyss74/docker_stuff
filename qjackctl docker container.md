@@ -1,4 +1,5 @@
-# Build a docker container on Clear Linux from the command prompt and run qjackctl in realtime.
+# Build docker container on Clear Linux and run Qjackctl in realtime.
+# Command prompt installation.
 
 ### Set xhost to accept connections from the docker container
 > xhost local:${USER}
@@ -14,7 +15,7 @@
 >sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1
 
 ### Container Prompt
-qjackctl &
+>qjackctl &
 
 ### After qjackctl starts, open the settings and set which audio card to use, framesize, samplerate, else it won't start.
 ### Add this line to the startup script in qjackctl 
