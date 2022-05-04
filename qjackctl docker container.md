@@ -7,11 +7,11 @@
 sudo modprobe snd_seq
 
 # Install docker and pull docker image. 
-sudo swupd bundle-add containers-basic
-sudo systemctl start docker.service
-echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile
-sudo docker build -t debianC1 < /tmp/Dockerfile -
-sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1
+> sudo swupd bundle-add containers-basic
+>sudo systemctl start docker.service
+>echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile
+>sudo docker build -t debianC1 < /tmp/Dockerfile -
+>sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1
 
 # Container Prompt
 qjackctl &
