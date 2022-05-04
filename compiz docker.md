@@ -44,8 +44,8 @@ ccsm
 > Composite, OpenGL, Window Decorations, Wobbly Windows, Grid, Move Window, Place Window, Resize Window, Shift Switcher
 
 ### Load emerald and compiz - Docker Terminal
-emerald --replace &
-compiz --replace &
+> emerald --replace &
+> compiz --replace &
 
 ### Emerald configuation if needed - Docker Terminal
 #emerald-theme-manager &
