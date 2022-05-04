@@ -1,9 +1,9 @@
 # Install compiz Docker container and xfce desktop on Clear Linux for wobbly windows and other special effects.
-## Tested with X11 and Nvidia driver installed.
+## Tested with X11 and Nvidia driver.
 ## Not fully tested on wayland or Nouveau
 
 
-### Install xfce4-desktop and Docker #Kde Plasma works too but in this example xfce4 is used.
+### Install xfce4-desktop and Docker -- Kde Plasma works too but in this example xfce4 is used.
 > sudo swupd bundle-add xfce4-desktop
 > sudo swupd bundle-add containers-basic
 > sudo systemctl start docker.service
@@ -16,12 +16,13 @@
 ### Now reboot, login and type: startx
 
 ### Option 2
-### If you don't feel like messing w/ .xinitrc and prefer to type in the session manually, just do
+### If you don't feel like messing w/ .xinitrc and prefer to type in the session manually.
+> sudo systemctl set-default multi-user.target 
 > startx /usr/bin/xfce4-session
 
 ### Xfce4 desktop
-### Turn on compositing in xfce settings manager
-### Save and close
+### Turn on compositing in xfce settings manager.
+### Save and close.
 
 ### Open up Terminal and copy and paste these lines.
 > echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y" > /tmp/Dockerfile
