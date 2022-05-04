@@ -1,5 +1,4 @@
-# Build docker container on Clear Linux and run Qjackctl in realtime.
-# Command prompt installation.
+# Build docker container on Clear Linux and run Qjackctl in realtime - Command prompt installation.
 
 ### Set xhost to accept connections from the docker container
 > xhost local:${USER}
