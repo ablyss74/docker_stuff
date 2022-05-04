@@ -1,10 +1,10 @@
 # What this does... 
-# Build a docker container on Clear Linux from the command prompt and run qjackctl in realtime.
+## Build a docker container on Clear Linux from the command prompt and run qjackctl in realtime.
 
-# Set xhost to accept connections from the docker container
+## Set xhost to accept connections from the docker container
 xhost local:${USER}
 
-# Load module snd_seq 
+## Load module snd_seq 
 sudo modprobe snd_seq
 
 # Install docker and pull docker image. 
