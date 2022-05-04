@@ -1,6 +1,5 @@
-# Install compiz Docker container and xfce desktop on Clear Linux for wobbly windows and other special effects.
-# Tested with X11 and Nvidia driver installed.
-# Not fully tested on wayland or Nouveau
+# Install compiz Docker container and xfce desktop on Clear Linux for wobbly windows and other special effects.\r\n Tested with X11 and Nvidia driver installed.
+## Not fully tested on wayland or Nouveau
 
 
 ### Install xfce4-desktop and Docker #Kde Plasma works too but in this example xfce4 is used.
@@ -39,7 +38,7 @@ sudo docker commit <CONTAINER ID>  debiancompiz  # Replace Container ID with the
 
 
 ### Configure Compiz - Docker Terminal
-> ccsm
+ccsm
 ### Turn on these plugins ( if the plugin is not listed that means its probably auto-detected and installed )
 ###Composite, OpenGL, Window Decorations, Wobbly Windows, Grid, Move Window, Place Window, Resize Window, Shift Switcher
 
@@ -56,7 +55,7 @@ compiz --replace &
 
 ### Turning off compiz... - Host Terminal
 ### Open up terminal 
-> xfwm4 --replace &
+xfwm4 --replace &
 ### Or log out and back in with startx
 
 
@@ -81,7 +80,7 @@ nvidia-smi
 while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && xfwm4 --replace ; done
 
 ### Delete docker contianer - If you need to start fresh or whatever reason
-> \# sudo docker rmi debiancompiz --force
+\# sudo docker rmi debiancompiz --force
 
 ### Enable graphical target to fallback and ignore .xinitrc
-### sudo systemctl set-default graphical.target
+sudo systemctl set-default graphical.target
