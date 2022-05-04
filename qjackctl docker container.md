@@ -26,7 +26,7 @@
 
 
 
-### Close qjackctl, but DO NOT exit the container terminal without saving container first!.. See next step.
+### Close qjackctl, but DO NOT exit the container terminal without saving container first! See next step.
 
 ### Save the docker container - So we do not have to repeat all the steps again we need to save the docker container.
 >sudo docker ps
