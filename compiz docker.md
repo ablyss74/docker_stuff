@@ -1,4 +1,5 @@
-# Install compiz Docker container and xfce desktop on Clear Linux for wobbly windows and other special effects.\r\n Tested with X11 and Nvidia driver installed.
+# Install compiz Docker container and xfce desktop on Clear Linux for wobbly windows and other special effects.
+## Tested with X11 and Nvidia driver installed.
 ## Not fully tested on wayland or Nouveau
 
 
