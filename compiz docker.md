@@ -69,11 +69,11 @@ nvidia-smi
 
 
 ## Issues
-### If you compositing is off on the host, opengl might not work.
+### If compositing is off on the host, opengl might not work.
 ### If you exit the container without first running xfwm4 --replace & on the host, your windows will have no borders.
 ### Try to right click on the desktop and logout and restart X with startx
  
-### If you try instead to do compiz in another window manager besides Xfce chances are it wont work unless you know something I don't. :)
+### Compiz does'n't work in Gnome or Enlightenment desktoop sessions.  Just FYI
 
 ## Extra Stuff
 ### This little script will watch for compiz/emerald/xfwm4 to close and load xfwm4 automatically.  
