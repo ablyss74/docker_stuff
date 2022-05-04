@@ -6,29 +6,29 @@
 ### Load module snd_seq 
 >sudo modprobe snd_seq
 
-# Install docker and pull docker image. 
+### Install docker and pull docker image. 
 > sudo swupd bundle-add containers-basic
 >sudo systemctl start docker.service
 >echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile
 >sudo docker build -t debianC1 < /tmp/Dockerfile -
 >sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1
 
-# Container Prompt
+### Container Prompt
 qjackctl &
 
-# After qjackctl starts, open the settings and set which audio card to use, framesize, samplerate, else it won't start.
-# Add this line to the startup script in qjackctl 
+### After qjackctl starts, open the settings and set which audio card to use, framesize, samplerate, else it won't start.
+### Add this line to the startup script in qjackctl 
 >echo -1 > /proc/sys/kernel/sched_rt_runtime_us
-# Add this line to the shutdown script in qjackctl 
+### Add this line to the shutdown script in qjackctl 
 >echo 950000 > /proc/sys/kernel/sched_rt_runtime_us
 
 ![Eample](./images/shot-2022-05-04_10-45-01.jpg)
 
 
 
-# Close qjackctl, but DO NOT exit the container terminal without saving container first!.. See next step
+### Close qjackctl, but DO NOT exit the container terminal without saving container first!.. See next step
 
-# Save the docker container - So we do not have to repeat all the steps again we need to save the docker container
+### Save the docker container - So we do not have to repeat all the steps again we need to save the docker container
 >sudo docker ps
 >sudo docker commit <CONTAINER ID> debianC1 # Replace Container ID with the first ID shown after your type sudo docker ps
 
