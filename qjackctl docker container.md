@@ -33,14 +33,14 @@
 >sudo docker commit \<CONTAINER ID\> debianC1 # Replace \<Container ID\> with the first ID shown after your type sudo docker ps
 
 
-### This is a little function for .bashrc to save the container.
+### This is a little bash function for .bashrc to save the container.
 >dodebiansave() {
 >var="$(sudo docker ps)"
 >var=($var)
 >sudo docker commit ${var[8]} debianC1
 >}
 
-### This is a little function for .bashrc to start the container. 
+### This is a little bash function for .bashrc to start the container. 
 ### This includes directives for pulseaudio for running non-jack stuff in the container but not required.
 >dodebian() {
 >sudo modprobe snd-seq
