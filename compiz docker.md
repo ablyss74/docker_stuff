@@ -5,19 +5,24 @@
 
 ### Install xfce4-desktop and Docker -- Kde Plasma works too but in this example xfce4 is used.
 > sudo swupd bundle-add xfce4-desktop
+> 
 > sudo swupd bundle-add containers-basic
+> 
 > sudo systemctl start docker.service
 
 ### Option 1 - default
 ### Disable graphical target and create .xinitrc
 > sudo systemctl set-default multi-user.target 
+> 
 > [[ $HOME/.xinitrc ]] && cp $HOME/.xinitrc $HOME/.xinitrc.$$.backup
+> 
 > echo "exec xfce4-session" > $HOME/.xinitrc
 ### Now reboot, login and type: startx
 
 ### Option 2
 ### If you don't feel like messing w/ .xinitrc and prefer to type in the session manually.
 > sudo systemctl set-default multi-user.target 
+> 
 > startx /usr/bin/xfce4-session
 
 ### Xfce4 desktop
@@ -39,6 +44,7 @@
 
 ### Save the container at this point in the Host Terminal, not the Docker terminal
 > sudo docker ps
+> 
 > sudo docker commit <CONTAINER ID>  debiancompiz  # Replace Container ID with the first ID shown after your type sudo docker ps
 
 
@@ -67,8 +73,11 @@
 ### From inside the container...
 ### Dowanload Nvidia driver https://www.nvidia.com/en-us/drivers/unix/
 > apt install curl kmod -y
+ 
 > curl -O <link to driver>
+ 
 > bash ./NVIDIA-Linux-<your driver here>.run --accept-license --ui=none --no-kernel-module --no-questions
+ 
 > nvidia-smi
 
 
