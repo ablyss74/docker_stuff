@@ -63,7 +63,7 @@
 ### Extra stuff you can add to the container are cairo-dock or lxpanel, jamin, rakarrack, guitarix, ardour, obs-studo, nvidia driver
 
 ### Known bugs:
-###Some apps do not render correctly in enlightenment desktop for some reason e.g., obs-studio, but work fine in gnome, kde plasma, and xfce4.
+### Some apps do not render correctly in enlightenment desktop for some reason e.g., obs-studio, but work fine in gnome, kde plasma, and xfce4.
 ### Docker pulled with ubuntu might break qjackctl with certain apps and dependencies. Pulling debian instead fixes this which is the default.
 
 
