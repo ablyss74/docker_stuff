@@ -74,7 +74,7 @@
 ### Dowanload Nvidia driver https://www.nvidia.com/en-us/drivers/unix/
 > apt install curl kmod -y
  
-> curl -O <link to driver>
+> curl -O \<link to driver\>
  
 > bash ./NVIDIA-Linux-<your driver here>.run --accept-license --ui=none --no-kernel-module --no-questions
  
