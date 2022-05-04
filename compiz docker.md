@@ -86,13 +86,13 @@
 ### If you exit the container without first running xfwm4 --replace & on the host, your windows will have no borders.
 ### Try to right click on the desktop and logout and restart X with startx
  
-### Compiz does'n't work in Gnome or Enlightenment desktoop sessions.  Just FYI
+### Compiz does'n't work in Gnome or Enlightenment desktoop sessions.  Just FYI.
 
 ## Extra Stuff
 ### This little script will watch for compiz/emerald/xfwm4 to close and load xfwm4 automatically.  
 > while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && xfwm4 --replace ; done
 
-### Delete docker contianer - If you need to start fresh or whatever reason
+### Delete docker contianer - If you need to start fresh or whatever reason.
 \# sudo docker rmi debiancompiz --force \#(omit the first pound sign).
 
 ### Enable graphical target to fallback and ignore .xinitrc
