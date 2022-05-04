@@ -41,7 +41,7 @@ qjackctl &
 >}
 
 ### This is a little function for .bashrc to start the container 
-# This includes flags for pulseaudio for running non-jack stuff in the container but not required.
+### This includes flags for pulseaudio for running non-jack stuff in the container but not required.
 >dodebian() {
 >sudo modprobe snd-seq
 >xhost local:${USER}
