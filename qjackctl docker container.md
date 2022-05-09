@@ -37,7 +37,7 @@
 >dodebiansave() {\
 >var="$(sudo docker ps)" \
 >var=($var) \
->sudo docker commit ${var[8]} debianC1 ;\
+>sudo docker commit ${var[8]} debianC1 \
 >}
 
 ### This is a little bash function for .bashrc to start the container. 
@@ -45,7 +45,7 @@
 >dodebian() {\
 >sudo modprobe snd-seq\
 >xhost local:${USER}\
->sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1 ;\
+>sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1 \
 >}
 
 
