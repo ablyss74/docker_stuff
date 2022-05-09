@@ -7,6 +7,7 @@
 >sudo modprobe snd_seq   # This is probably optional for midi stuff but Qjackctl will give a warning message without it. Disable it if you want.
 
 ### Install docker and pull docker image. 
+### Note: the docker /root folder will point to your $HOME directory for saving files outside the docker.  Remove -v ${HOME}:/root if you don't want this.
 >sudo swupd bundle-add containers-basic \
 >sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service \
 >echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile \
