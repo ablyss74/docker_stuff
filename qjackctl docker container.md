@@ -4,7 +4,7 @@
 > xhost local:${USER}
 
 ### Load module snd_seq.
->sudo modprobe snd_seq
+>sudo modprobe snd_seq   # This is probably optional for midi stuff but Qjackctl will give a warning message without it. Disable it if you want.
 
 ### Install docker and pull docker image. 
 >sudo swupd bundle-add containers-basic \
