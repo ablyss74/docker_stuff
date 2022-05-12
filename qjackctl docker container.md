@@ -33,7 +33,7 @@
 >sudo docker commit \<CONTAINER ID\> debianc1 # Replace \<Container ID\> with the first ID shown after your type sudo docker ps
 
 
-### When we are done put take the system out of realtime mode
+### When we are done take the system out of realtime mode
 >sudo bash #Copy this line first
 >
 >echo 950000 > /proc/sys/kernel/sched_rt_runtime_us #Copy this line second
