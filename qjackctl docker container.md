@@ -9,9 +9,13 @@
 ### Install docker and pull docker image. 
 ### Note: the docker /root folder will point to your $HOME directory for saving files outside the docker.  Remove -v ${HOME}:/root if you don't want this.
 >sudo swupd bundle-add containers-basic \
+>
 >sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service \
+>
 >echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile \
+>
 >sudo docker build -t debianc1 < /tmp/Dockerfile - \
+>
 >sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1
 
 ### Container Prompt.
@@ -31,6 +35,7 @@
 
 ### Save the docker container - So we do not have to repeat all the steps again we need to save the docker container.
 >sudo docker ps \
+>
 >sudo docker commit \<CONTAINER ID\> debianc1 # Replace \<Container ID\> with the first ID shown after your type sudo docker ps
 
 
@@ -56,7 +61,9 @@
 
 ### Testing qjackctl in the docker container.
 >apt install lmms -y \
+>
 >qjackctl & \
+>
 >lmms --allowroot &
 ### Tell lmms to use jack, restart lmms and play a sample song.
 ### Save your container image as described above.
