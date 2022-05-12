@@ -11,7 +11,7 @@
 >
 >echo -1 > /proc/sys/kernel/sched_rt_runtime_us # Copy this line second
 >
->exit root terminal
+>exit # exit root terminal
 
 ### Install docker and pull docker image. 
 >sudo swupd bundle-add containers-basic
