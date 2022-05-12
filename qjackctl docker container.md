@@ -4,7 +4,10 @@
 > xhost local:${USER}
 
 ### Load module snd_seq.
->sudo modprobe snd_seq  
+>sudo modprobe snd_seq 
+
+### Put the system in real time mode
+>echo -1 > /proc/sys/kernel/sched_rt_runtime_us
 
 ### Install docker and pull docker image. 
 ### Note: the docker /root folder will point to your $HOME directory for saving files outside the docker.  Remove -v ${HOME}:/root if you don't want this.
@@ -21,16 +24,6 @@
 ### Container Prompt.
 >qjackctl &
 
-### After qjackctl starts, open the settings and set which audio card to use, framesize, samplerate, else it won't start.
-### Add this line to the startup script in qjackctl. 
->echo -1 > /proc/sys/kernel/sched_rt_runtime_us
-### Add this line to the shutdown script in qjackctl. 
->echo 950000 > /proc/sys/kernel/sched_rt_runtime_us
-
-![Eample](./images/shot-2022-05-04_10-45-01.jpg)
-
-
-
 ### Close qjackctl, but DO NOT exit the container terminal without saving container first! See next step.
 
 ### Save the docker container - So we do not have to repeat all the steps again we need to save the docker container.
@@ -38,6 +31,9 @@
 >
 >sudo docker commit \<CONTAINER ID\> debianc1 # Replace \<Container ID\> with the first ID shown after your type sudo docker ps
 
+
+### When we are done put take the system out of realtime mode
+>echo 950000 > /proc/sys/kernel/sched_rt_runtime_us
 
 ### This is a little bash function for .bashrc to save the container.
 >dodebiansave() { 
@@ -58,7 +54,7 @@
 >
 >xhost local:${USER} 
 >
->sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1
+>sudo docker run -it --privileged -v ${HOME}:${HOME} -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --user ${USER}:${USER} --net=host -e DISPLAY=${DISPLAY} debianc1
 >
 >}
 
