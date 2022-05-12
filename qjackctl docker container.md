@@ -18,7 +18,7 @@
 >
 >sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service 
 >
->echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y\RUN useradd -M ${USER}" > /tmp/Dockerfile
+>echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y\\RUN useradd -M ${USER}" > /tmp/Dockerfile
 >
 >sudo docker build -t debianc1 < /tmp/Dockerfile - 
 >
