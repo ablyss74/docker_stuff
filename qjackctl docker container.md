@@ -6,7 +6,7 @@
 ### Load module snd_seq.
 >sudo modprobe snd_seq 
 
-### Put the system in real time mode
+### Put the system in realtime mode
 >sudo bash #Copy this line first
 >
 >echo -1 > /proc/sys/kernel/sched_rt_runtime_us # Copy this line second
