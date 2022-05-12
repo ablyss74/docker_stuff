@@ -7,7 +7,9 @@
 >sudo modprobe snd_seq 
 
 ### Put the system in real time mode
->echo -1 > /proc/sys/kernel/sched_rt_runtime_us
+>sudo bash #Copy this line first
+>
+>echo -1 > /proc/sys/kernel/sched_rt_runtime_us # Copy this line second
 
 ### Install docker and pull docker image. 
 >sudo swupd bundle-add containers-basic
@@ -32,7 +34,9 @@
 
 
 ### When we are done put take the system out of realtime mode
->echo 950000 > /proc/sys/kernel/sched_rt_runtime_us
+>sudo bash #Copy this line first
+>
+>echo 950000 > /proc/sys/kernel/sched_rt_runtime_us #Copy this line second
 
 ### This is a little bash function for .bashrc to save the container.
 >dodebiansave() { 
