@@ -10,13 +10,15 @@
 >sudo bash #Copy this line first
 >
 >echo -1 > /proc/sys/kernel/sched_rt_runtime_us # Copy this line second
+>
+>exit root terminal
 
 ### Install docker and pull docker image. 
 >sudo swupd bundle-add containers-basic
 >
 >sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service 
 >
->sudo echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y\RUN useradd -M ${USER}" > /tmp/Dockerfile
+>echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y\RUN useradd -M ${USER}" > /tmp/Dockerfile
 >
 >sudo docker build -t debianc1 < /tmp/Dockerfile - 
 >
