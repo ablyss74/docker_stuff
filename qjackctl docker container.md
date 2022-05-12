@@ -4,63 +4,49 @@
 > xhost local:${USER}
 
 ### Load module snd_seq.
->sudo modprobe snd_seq 
-
-### Put the system in realtime mode
->sudo bash #Copy this line first
->
->echo -1 > /proc/sys/kernel/sched_rt_runtime_us # Copy this line second
->
->exit # exit root terminal
+>sudo modprobe snd_seq   # This is probably optional for midi stuff but Qjackctl will give a warning message without it. Disable it if you want.
 
 ### Install docker and pull docker image. 
->sudo swupd bundle-add containers-basic
->
->sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service 
->
->echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y\\nRUN useradd -M ${USER}" > /tmp/Dockerfile
->
->sudo docker build -t debianc1 < /tmp/Dockerfile - 
->
->sudo docker run -it --privileged -v ${HOME}:${HOME} -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --user ${USER}:${USER} --net=host -e DISPLAY=${DISPLAY} debianc1
+### Note: the docker /root folder will point to your $HOME directory for saving files outside the docker.  Remove -v ${HOME}:/root if you don't want this.
+>sudo swupd bundle-add containers-basic \
+>sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service \
+>echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile \
+>sudo docker build -t debianc1 < /tmp/Dockerfile - \
+>sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1
 
 ### Container Prompt.
 >qjackctl &
 
+### After qjackctl starts, open the settings and set which audio card to use, framesize, samplerate, else it won't start.
+### Add this line to the startup script in qjackctl. 
+>echo -1 > /proc/sys/kernel/sched_rt_runtime_us
+### Add this line to the shutdown script in qjackctl. 
+>echo 950000 > /proc/sys/kernel/sched_rt_runtime_us
+
+![Eample](./images/shot-2022-05-04_10-45-01.jpg)
+
+
+
 ### Close qjackctl, but DO NOT exit the container terminal without saving container first! See next step.
 
 ### Save the docker container - So we do not have to repeat all the steps again we need to save the docker container.
->sudo docker ps
->
+>sudo docker ps \
 >sudo docker commit \<CONTAINER ID\> debianc1 # Replace \<Container ID\> with the first ID shown after your type sudo docker ps
 
 
-### When we are done take the system out of realtime mode
->sudo bash #Copy this line first
->
->echo 950000 > /proc/sys/kernel/sched_rt_runtime_us #Copy this line second
-
 ### This is a little bash function for .bashrc to save the container.
->dodebiansave() { 
->
->var="$(sudo docker ps)" 
->
->var=($var) 
->
->sudo docker commit ${var[8]} debianc1 
->
+>dodebiansave() { \
+>var="$(sudo docker ps)" \
+>var=($var) \
+>sudo docker commit ${var[8]} debianc1 \
 >}
 
 ### This is a little bash function for .bashrc to start the container. 
 ### This includes directives for pulseaudio for running non-jack stuff in the container but not required.
->dodebian() { 
->
->sudo modprobe snd-seq 
->
->xhost local:${USER} 
->
->sudo docker run -it --privileged -v ${HOME}:${HOME} -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --user ${USER}:${USER} --net=host -e DISPLAY=${DISPLAY} debianc1
->
+>dodebian() { \
+>sudo modprobe snd-seq \
+>xhost local:${USER} \
+>sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1 \
 >}
 
 
@@ -69,32 +55,17 @@
 
 
 ### Testing qjackctl in the docker container.
->apt install lmms -y 
->
->qjackctl & 
->
+>apt install lmms -y \
+>qjackctl & \
 >lmms --allowroot &
 ### Tell lmms to use jack, restart lmms and play a sample song.
 ### Save your container image as described above.
 
 ### Extra stuff you can add to the container are cairo-dock or lxpanel, jamin, rakarrack, guitarix, ardour, obs-studo, nvidia driver.
 
-### Install nvidia drivers if you want - Docker Terminal
-### From inside the container...
-### Must be the same driver as installed on the host.
-### Dowanload Nvidia driver https://www.nvidia.com/en-us/drivers/unix/
-> apt install curl kmod -y
- 
-> curl -O \<link to driver\>
- 
-> bash ./NVIDIA-Linux-<your driver here>.run --accept-license --ui=none --no-kernel-module --no-questions
- 
-> nvidia-smi
-
 ### Known bugs:
 ### Some apps do not render correctly in enlightenment desktop for some reason e.g., obs-studio, but work fine in gnome, kde plasma, and xfce4.
 ### Docker pulled with ubuntu might break qjackctl with certain apps and dependencies. Pulling debian instead fixes this which is the default.
-
 
 
 
