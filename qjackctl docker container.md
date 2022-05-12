@@ -8,7 +8,7 @@
 
 ### Install docker and pull docker image. 
 ### Note: the docker /root folder will point to your $HOME directory for saving files outside the docker.  Remove -v ${HOME}:/root if you don't want this.
->sudo swupd bundle-add containers-basic \
+>sudo swupd bundle-add containers-basic
 >
 >sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service 
 >
