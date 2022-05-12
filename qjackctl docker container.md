@@ -10,11 +10,11 @@
 ### Note: the docker /root folder will point to your $HOME directory for saving files outside the docker.  Remove -v ${HOME}:/root if you don't want this.
 >sudo swupd bundle-add containers-basic \
 >
->sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service \
+>sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service 
 >
->echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile \
+>echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile
 >
->sudo docker build -t debianc1 < /tmp/Dockerfile - \
+>sudo docker build -t debianc1 < /tmp/Dockerfile - 
 >
 >sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1
 
@@ -40,18 +40,26 @@
 
 
 ### This is a little bash function for .bashrc to save the container.
->dodebiansave() { \
->var="$(sudo docker ps)" \
->var=($var) \
->sudo docker commit ${var[8]} debianc1 \
+>dodebiansave() { 
+>
+>var="$(sudo docker ps)" 
+>
+>var=($var) 
+>
+>sudo docker commit ${var[8]} debianc1 
+>
 >}
 
 ### This is a little bash function for .bashrc to start the container. 
 ### This includes directives for pulseaudio for running non-jack stuff in the container but not required.
->dodebian() { \
->sudo modprobe snd-seq \
->xhost local:${USER} \
->sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1 \
+>dodebian() { 
+>
+>sudo modprobe snd-seq 
+>
+>xhost local:${USER} 
+>
+>sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1
+>
 >}
 
 
@@ -60,9 +68,9 @@
 
 
 ### Testing qjackctl in the docker container.
->apt install lmms -y \
+>apt install lmms -y 
 >
->qjackctl & \
+>qjackctl & 
 >
 >lmms --allowroot &
 ### Tell lmms to use jack, restart lmms and play a sample song.
