@@ -11,8 +11,8 @@
 >sudo swupd bundle-add containers-basic \
 >sudo systemctl start docker.service ## Have docker start at boot with systemctl enable docker.service \
 >echo -e "FROM debian \\nRUN apt update \\nRUN apt upgrade -y\\nRUN apt update -y\\nRUN apt install qjackctl -y" > /tmp/Dockerfile \
->sudo docker build -t debianC1 < /tmp/Dockerfile - \
->sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1
+>sudo docker build -t debianc1 < /tmp/Dockerfile - \
+>sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1
 
 ### Container Prompt.
 >qjackctl &
@@ -31,14 +31,14 @@
 
 ### Save the docker container - So we do not have to repeat all the steps again we need to save the docker container.
 >sudo docker ps \
->sudo docker commit \<CONTAINER ID\> debianC1 # Replace \<Container ID\> with the first ID shown after your type sudo docker ps
+>sudo docker commit \<CONTAINER ID\> debianc1 # Replace \<Container ID\> with the first ID shown after your type sudo docker ps
 
 
 ### This is a little bash function for .bashrc to save the container.
 >dodebiansave() { \
 >var="$(sudo docker ps)" \
 >var=($var) \
->sudo docker commit ${var[8]} debianC1 \
+>sudo docker commit ${var[8]} debianc1 \
 >}
 
 ### This is a little bash function for .bashrc to start the container. 
@@ -46,12 +46,12 @@
 >dodebian() { \
 >sudo modprobe snd-seq \
 >xhost local:${USER} \
->sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianC1 \
+>sudo docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1 \
 >}
 
 
 ### Delete docker contianer - If you need to start fresh or whatever reason.
-> \# sudo docker rmi debianC1 --force  \#(omit the first pound sign).
+> \# sudo docker rmi debianc1 --force  \#(omit the first pound sign).
 
 
 ### Testing qjackctl in the docker container.
