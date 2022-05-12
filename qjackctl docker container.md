@@ -78,6 +78,18 @@
 
 ### Extra stuff you can add to the container are cairo-dock or lxpanel, jamin, rakarrack, guitarix, ardour, obs-studo, nvidia driver.
 
+### Install nvidia drivers if you want - Docker Terminal
+### From inside the container...
+### Must be the same driver as installed on the host.
+### Dowanload Nvidia driver https://www.nvidia.com/en-us/drivers/unix/
+> apt install curl kmod -y
+ 
+> curl -O \<link to driver\>
+ 
+> bash ./NVIDIA-Linux-<your driver here>.run --accept-license --ui=none --no-kernel-module --no-questions
+ 
+> nvidia-smi
+
 ### Known bugs:
 ### Some apps do not render correctly in enlightenment desktop for some reason e.g., obs-studio, but work fine in gnome, kde plasma, and xfce4.
 ### Docker pulled with ubuntu might break qjackctl with certain apps and dependencies. Pulling debian instead fixes this which is the default.
