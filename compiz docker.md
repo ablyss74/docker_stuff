@@ -89,7 +89,7 @@
 ### If you exit the container without first running xfwm4 --replace & on the host, your windows will have no borders.
 ### Try to right click on the desktop and logout and restart X with startx
  
-### Compiz doesn't work in Gnome or Enlightenment desktoop sessions.  Just FYI.
+### Compiz doesn't work in Gnome or Enlightenment desktop sessions.  Just FYI.
 
 ### Extra Stuff
 ### This little script will watch for compiz/emerald/xfwm4 to close and load xfwm4 automatically.
