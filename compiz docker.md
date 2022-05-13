@@ -68,6 +68,7 @@
 ### Turning off compiz... - Host Terminal
 ### Open up terminal 
 > xfwm4 --replace &
+>
 > #Or log out and back in with startx
 
 
