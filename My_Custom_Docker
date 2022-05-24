@@ -1,6 +1,6 @@
 ### Basically this is a short one liner to build and execute ubuntu:latest docker in clear linux.
 
-- It assumes the the docker bundle is already installed
+- It assumes the docker bundle is already installed
 
 - Also assumes you will run this with with sudo or root
 
