@@ -2,7 +2,7 @@
 
 - It assumes the following...
  1. Docker bundle is already installed
- 2. You will run this with with sudo or root
+ 2. You will run this with sudo or root
  3. Realtime mode is already set to -1 /// if not see the https://github.com/ablyss74/docker_stuff/blob/main/qjackctl%20docker%20container.md page for details how.
  4. You're $HOME director is mirrowed to the docker $HOME directory
 
