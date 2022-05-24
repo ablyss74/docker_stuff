@@ -1,4 +1,4 @@
-### Basically this is a short one liner to build and execut the docker running ubuntu:latest in clear linux.
+### Basically this is a short one liner to build and execute the docker running ubuntu:latest in clear linux.
 
 ### It assumes tthe the docker bundle is already installed
 
