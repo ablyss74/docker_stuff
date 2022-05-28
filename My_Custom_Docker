@@ -1,5 +1,7 @@
 ### Basically this is a short one liner to build and execute ubuntu:latest docker in clear linux.
 
+# Installs the following apps by default: qjackctl kmod rakarrack jamin ardour lmms obs-studio locate 
+
 - It assumes the following...
  1. Docker bundle is already installed
  2. You will run this with sudo or root
