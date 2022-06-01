@@ -10,7 +10,7 @@
  5. You're familiar with terminal shell use and know how to execute a program with the ampersand.
  
  
-# Del if necessary to start clean: docker rmi debian:latest --force 
+# Del if necessary to start clean: docker rmi debianjamin --force 
 
 # Create a docker template
 echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nRUN apt install qjackctl -y' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
