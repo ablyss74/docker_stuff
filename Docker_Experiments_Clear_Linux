@@ -13,11 +13,11 @@
 # Del if necessary to start clean: docker rmi debian:latest --force 
 
 # Create a docker template
-echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
+echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nRUN apt install qjackctl -y' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
 
 
-# Tell the docker to run the app only
-echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nCMD ["jamin", "-D", "FOREGROUND"]' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
+# Tell the docker to run the apps only
+echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nCMD ["qjackctl", "-D", "FOREGROUND"]\nCMD ["jamin", "-D", "FOREGROUND"]' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
 
 
 # Run the program
