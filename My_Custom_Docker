@@ -7,7 +7,8 @@
  1. Docker bundle is already installed
  2. You will run this with sudo or root
  3. Realtime mode is already set to -1 /// if not see the https://github.com/ablyss74/docker_stuff/blob/main/qjackctl%20docker%20container.md page for details how.
- 4. You're aware and okay having your $HOME director mirrowed to the docker $HOME directory
+ 4. You're aware and okay having your $HOME director mirrowed to the docker $HOME directory.
+ 5. You're familiar with terminal shell use and know how to execute a program with the ampersand.
 
 - Useful for running hard to find apps and/or for those that don't work right on your existing system. /// However, if your /system is already broke it probably won't help :-)
 
