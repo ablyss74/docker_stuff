@@ -11,5 +11,5 @@
 
 
 echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install qjackctl -y\nRUN apt install kmod -y\nRUN apt install projectm-data -y' > /tmp/Dockerfile && docker build -t debian:latest < /tmp/Dockerfile -
-echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install qjackctl -y\nRUN apt install kmod -y\nRUN apt install projectm-data -y\nCMD ["qjackctl", "-D", "FOREGROUND"]' > /tmp/Dockerfile && docker build -t debian:latest < /tmp/Dockerfile -
+echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install qjackctl -y\nRUN apt install kmod -y\nRUN apt install projectm-data -y\nCMD ["/bin/bash", "-D", "FOREGROUND"]' > /tmp/Dockerfile && docker build -t debian:latest < /tmp/Dockerfile -
 xhost local:${USER} && docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debian
