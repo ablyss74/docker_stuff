@@ -18,6 +18,9 @@ xhost local:${USER} && docker run -it --privileged -v ${HOME}:/root -e JACK_NO_A
 
 # Create a startup exe with terminology
 echo -e "xhost local:${USER}\nterminology -e docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 --device /dev/snd -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianq_jackctl" > ./qjackctl && chmod +x ./qjackctl
+
+# Or...
+
 # Create a startup exe with gnome-terminal
 echo -e "xhost local:${USER}\ngnome-terminal -- docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 --device /dev/snd -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianq_jackctl" > ./qjackctl && chmod +x ./qjackctl
 
@@ -33,6 +36,9 @@ xhost local:${USER} && docker run -it --privileged -v ${HOME}:/root -e JACK_NO_A
 
 # Create a startup exe with terminology
 echo -e "xhost local:${USER}\nterminology -e docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 --device /dev/snd -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianq_jamin" > ./jamin && chmod +x ./jamin
+
+# Or...
+
 # Create a startup exe with gnome-terminal
 echo -e "xhost local:${USER}\ngnome-terminal -- docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 --device /dev/snd -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianq_jamin" > ./jamin && chmod +x ./jamin
 
