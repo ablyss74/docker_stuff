@@ -11,11 +11,11 @@
  
  
 # Create a docker template
-docker rmi debianjamin --force && echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nRUN apt install qjackctl -y' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
+docker rmi debianjamin --force && echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nRUN apt install qjackctl -y\nRUN echo "[[ ! $(ps -A | grep jamin) ]] && qjackctl -s" > startup.sh' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
 
 
 # Tell the docker to run the apps only
-echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nENTRYPOINT bash -c "[[ ! $(ps -A | grep jamin) ]] && qjackctl -s" && jamin' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
+echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nENTRYPOINT bash ./startup.sh "" && jamin' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
 
 
 # Run the program
