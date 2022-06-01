@@ -17,7 +17,7 @@ docker rmi debianq_jackctl --force && echo -e 'FROM debian \nRUN apt update \nRU
 xhost local:${USER} && docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 --device /dev/snd -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianq_jackctl
 
 # Create a startup exe with terminology
-echo -e "xhost local:${USER}\nterminology -e docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 --device /dev/snd -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianq_jackctl" > ./qjackctl && chmod +x ./qjackctl
+echo -e "xhost local:${USER}\nterminology -e docker run -it --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1 --device /dev/snd -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianq_jackctl" > ./qjackctl && chmod +x ./qjackctl
 
 
 #---------------
