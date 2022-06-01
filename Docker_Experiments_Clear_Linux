@@ -13,7 +13,7 @@
 # Del if necessary to start clean: docker rmi debian:latest --force 
 
 # Create a docker template
-echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y' > /tmp/Dockerfile && docker build -t debian:latest < /tmp/Dockerfile -
+echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
 
 
 # Tell the docker to run the app only
