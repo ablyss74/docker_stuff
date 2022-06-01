@@ -11,7 +11,7 @@
  
  
 # Create a docker Qjackctl template
-docker rmi debianq_jackctl --force && echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install qjackctl -y' > /tmp/Dockerfile && docker build -t debianq_jackctl < /tmp/Dockerfile -
+docker rmi debianq_jackctl --force && echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install qjackctl -y\nENTRYPOINT qjackctl' > /tmp/Dockerfile && docker build -t debianq_jackctl < /tmp/Dockerfile -
 
 
 # Run the program
@@ -19,7 +19,7 @@ xhost local:${USER} && docker run -it --privileged -v ${HOME}:/root -e JACK_NO_A
 
 
 # Create a docker jamin template
-docker rmi debianq_jamin --force && echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y' > /tmp/Dockerfile && docker build -t debianq_jamin < /tmp/Dockerfile -
+docker rmi debianq_jamin --force && echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nENTRYPOINT jamin' > /tmp/Dockerfile && docker build -t debianq_jamin < /tmp/Dockerfile -
 
 
 # Run the program
