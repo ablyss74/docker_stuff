@@ -17,7 +17,7 @@ echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jami
 
 
 # Tell the docker to run the apps only
-echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nCMD ["qjackctl", "-D", "FOREGROUND"]\nCMD ["jamin", "-D", "FOREGROUND"]' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
+echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nCMD ["qjackctl", "&"]\nCMD ["jamin", "&"]' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
 
 
 # Run the program
