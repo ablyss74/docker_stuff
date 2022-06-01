@@ -15,7 +15,7 @@ docker rmi debianjamin --force && echo -e 'FROM debian \nRUN apt update \nRUN ap
 
 
 # Tell the docker to run the apps only
-echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nENTRYPOINT [[ ! $(ps -A | grep jamin) ]] && qjackctl -s && jamin' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
+echo -e 'FROM debian \nRUN apt update \nRUN apt upgrade -y\nRUN apt install jamin -y\nENTRYPOINT bash [[ ! $(ps -A | grep jamin) ]] && qjackctl -s && jamin' > /tmp/Dockerfile && docker build -t debianjamin < /tmp/Dockerfile -
 
 
 # Run the program
