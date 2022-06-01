@@ -1,4 +1,5 @@
 ### Basically this is a short one liner to build and execute ubuntu:latest docker in clear linux.
+### Also added one for debian:latest
 
 # Installs the following apps by default: qjackctl kmod rakarrack jamin ardour lmms obs-studio locate 
 
