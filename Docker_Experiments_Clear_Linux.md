@@ -5,7 +5,7 @@
  2. You will run this with sudo or root
     If using sudo just add it to the first line of this example to invoke it.
  3. You're okay having Realtime mode set to -1 when using qjackctl  
-    See the [qjackctl docker container](https://github.com/ablyss74/docker_stuff/blob/main/qjackctl%20docker%20container.md") for details on a how-to.
+    See the [qjackctl docker container](https://github.com/ablyss74/docker_stuff/blob/main/qjackctl%20docker%20container.md) for details on a how-to.
  4. You're aware and okay having your $HOME director mirrowed to the docker $HOME directory.
  5. You're familiar with terminal shell use and know how to execute a program with the ampersand.
  
