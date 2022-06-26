@@ -16,6 +16,6 @@ Also added one for debian:latest
 echo -e 'FROM ubuntu:latest \nRUN apt update \nRUN apt upgrade -y\nRUN apt install qjackctl -y\nRUN apt install kmod -y\nRUN apt install rakarrack -y\nRUN apt install jamin -y\nRUN apt install ardour -y\nRUN apt install lmms -y\nRUN apt install obs-studio -y\nRUN apt install locate -y' > /tmp/Dockerfile && docker build -t ubuntu:latest < /tmp/Dockerfile - && modprobe snd-seq && xhost local:${USER} && docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} ubuntu:latest
 ```
 ```bash
-# This container is for projectm-jack & kmod for loading vidio drivers 
+# This container is for projectm-jack & kmod for loading video drivers 
 echo -e 'FROM debian:latest \nRUN apt update \nRUN apt upgrade -y\nRUN apt install projectm-jack -y\nRUN apt install kmod -y\nRUN apt install projectm-data -y' > /tmp/Dockerfile && docker build -t debian:latest < /tmp/Dockerfile - && xhost local:${USER} && docker run -it --privileged -v ${HOME}:/root -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debian:latest
 ```
