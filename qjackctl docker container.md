@@ -67,10 +67,6 @@ sudo docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/s
 }
 
 
-### Delete docker contianer - If you need to start fresh or whatever reason.
-sudo docker rmi debianc1 --force  \#(omit the first pound sign).
-
-
 ### Testing qjackctl in the docker container.
 apt install lmms -y
 
@@ -81,6 +77,10 @@ lmms --allowroot &
 ### Save your container image as described above.
 
 ### Extra stuff you can add to the container are cairo-dock or lxpanel, jamin, rakarrack, guitarix, ardour, obs-studo, nvidia driver.
+
+
+### Delete docker contianer - If you need to start fresh or delete the it.  I'd also do a docker system prune for a deep clean removal if need be.
+sudo docker rmi debianc1 --force  \#(omit the first pound sign).
 ```
 
 
