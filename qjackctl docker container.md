@@ -79,7 +79,7 @@ lmms --allowroot &
 ### Extra stuff you can add to the container are cairo-dock or lxpanel, jamin, rakarrack, guitarix, ardour, obs-studo, nvidia driver.
 
 
-### Delete docker contianer - If you need to start fresh or delete the it.  I'd also do a docker system prune for a deep clean removal if need be.
+### Delete docker contianer - If you need to start fresh or just want to delete it.  I'd also do a docker system prune for a deep clean removal if need be.
 sudo docker rmi debianc1 --force  \#(omit the first pound sign).
 ```
 
