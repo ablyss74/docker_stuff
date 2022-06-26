@@ -68,7 +68,7 @@ sudo docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/s
 
 
 ### Delete docker contianer - If you need to start fresh or whatever reason.
-\# sudo docker rmi debianc1 --force  \#(omit the first pound sign).
+sudo docker rmi debianc1 --force  \#(omit the first pound sign).
 
 
 ### Testing qjackctl in the docker container.
