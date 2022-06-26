@@ -40,6 +40,7 @@
 
 
 ### This is a little bash function for .bashrc to save the container.
+```code
 >dodebiansave() {
 >
 >var="$(sudo docker ps)"
@@ -49,9 +50,10 @@
 >sudo docker commit ${var[8]} debianc1
 >
 >}
-
+```
 ### This is a little bash function for .bashrc to start the container. 
 ### This includes directives for pulseaudio for running non-jack stuff in the container but not required.
+```code
 >dodebian() {
 >
 >sudo modprobe snd-seq
@@ -61,7 +63,7 @@
 >sudo docker run -it --privileged -e JACK_NO_AUDIO_RESERVATION=1  --device /dev/snd -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native -v /dev/shm:/dev/shm:rw --net=host -e DISPLAY=${DISPLAY} debianc1
 >
 >}
-
+```
 
 ### Delete docker contianer - If you need to start fresh or whatever reason.
 > \# sudo docker rmi debianc1 --force  \#(omit the first pound sign).
