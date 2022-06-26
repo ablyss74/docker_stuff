@@ -1,7 +1,8 @@
 ## Build docker container on Clear Linux and run Qjackctl in realtime - Command prompt installation.
 
-### Set xhost to accept connections from the docker container.
 ```code
+### Set xhost to accept connections from the docker container.
+
 xhost local:${USER}
 
 ### Load module snd_seq.
