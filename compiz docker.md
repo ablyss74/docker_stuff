@@ -95,9 +95,9 @@
 ### This little script will watch for compiz/emerald/xfwm4 to close and load xfwm4 automatically.
 ### Or use the second one for KDE
  ```code
-> while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && xfwm4 --replace ; done # For XFCE
->
-> while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && kwin_x11 --replace ; done # For KDE
+while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && xfwm4 --replace ; done # For XFCE
+
+while sleep 1; do [[ ! $(ps -A | grep compiz) && ! $(ps -A | grep xfwm4) ]] && kwin_x11 --replace ; done # For KDE
 ```
  
 
